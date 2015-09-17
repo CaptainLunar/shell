@@ -5,7 +5,6 @@
 #include <vector>
 #include <algorithm>
 #include <cstring>
-#include <dirent.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 
