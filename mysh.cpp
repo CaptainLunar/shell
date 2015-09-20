@@ -72,24 +72,23 @@ void myShCommands::echoNoCR(vector<string> &n)
 
 void myShCommands::PS1(vector <string> &h)
 {
-    //check to see if command is space delimited
-    if (h.at(0) != "PS1") {
-      cout << "PS1 command needs to be space delimited. i.e PS1 = \"your prompt name\"" << endl;
-      cout << "No spaces allowed in prompt name. Feature to be implemented soon.";
-      return;
-    }
-    else {
-      string x;
-      x = h.at(2);
-      char nochars[]="\"";
+	//check to see if command is space delimited
+	if (h.at(0) != "PS1") {
+        cout << "PS1 command needs to be space delimited. i.e PS1 = \"your prompt name\"" << endl;
+        cout << "No spaces allowed in prompt name. Feature to be implemented soon.";
+        return;
+        }
+        else {
+        	string x;
+      		x = h.at(2);
+      		char nochars[]="\"";
       
-      for (int i = 0; i < strlen(nochars); i++) {
-        x.erase (remove(x.begin(), x.end(), nochars[i]), x.end());
-      }
-
-      //add a space
-      prompt = x.append(" ");
-    }
+      		for (int i = 0; i < strlen(nochars); i++) {
+        		x.erase (remove(x.begin(), x.end(), nochars[i]), x.end());
+     		}
+     	//add a space
+     	prompt = x.append(" ");
+	}	
 }
 
 //cat only works with txt files at the moment
@@ -121,7 +120,7 @@ void myShCommands::cat(vector <string> &l)
 
 void myShCommands::cp(vector <string> & cpVec)
 {
-	fstream filein;
+    fstream filein;
     ofstream filecp; //file to copy
 
     string fin;
@@ -144,7 +143,6 @@ void myShCommands::cp(vector <string> & cpVec)
        //i = 1 so we don't iterate cp command
        for (int i = 1; i < cpVec.size() - 1; i++) 
        {
-
            //get name of file at vector position in i
            fin = cpVec.at(i);
            
@@ -249,9 +247,9 @@ int main(int argc, char *argv[])
    
     string ps1var;
 
-	vector <string> args;
+    vector <string> args;
     
-	myShCommands cmd;
+    myShCommands cmd;
    	
     while (run) {
       cmd.printPrompt(); 
